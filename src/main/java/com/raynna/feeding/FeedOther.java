@@ -16,17 +16,17 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
-@Mod(FeedMod.MOD_ID)
-public class FeedMod
+@Mod(FeedOther.MOD_ID)
+public class FeedOther
 {
-    public static final String MOD_ID = "raynnafeedingmod";
-    public static final String MOD_NAME = "RaynnaFeedingMod";
+    public static final String MOD_ID = "feedother";
+    public static final String MOD_NAME = "RaynnaFeedOther";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static FeedMod INSTANCE;
+    public static FeedOther INSTANCE;
     public static IProxy PROXY;
 
-    public FeedMod(IEventBus modEventBus, ModContainer modContainer)
+    public FeedOther(IEventBus modEventBus, ModContainer modContainer)
     {
         INSTANCE = this;
         PROXY = FMLEnvironment.dist == Dist.CLIENT
@@ -40,19 +40,19 @@ public class FeedMod
 
     public static ResourceLocation getId(String path) {
         if (path.contains(":")) {
-            if (path.startsWith(FeedMod.MOD_ID)) {
+            if (path.startsWith(FeedOther.MOD_ID)) {
                 return ResourceLocation.tryParse(path);
             } else {
-                throw new IllegalArgumentException("path contains namespace other than " + FeedMod.MOD_ID);
+                throw new IllegalArgumentException("path contains namespace other than " + FeedOther.MOD_ID);
             }
         }
-        return ResourceLocation.fromNamespaceAndPath(FeedMod.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(FeedOther.MOD_ID, path);
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        LOGGER.info("[RaynnaFeedingMod] Mod loaded on dedicated server]");
+        LOGGER.info("[RaynnaFeedOther] Mod loaded on dedicated server]");
     }
 
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -61,8 +61,7 @@ public class FeedMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            LOGGER.info("[RaynnaFeedingMod] Mod loaded on client]");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            LOGGER.info("[RaynnaFeedOther] Mod loaded on client]");
         }
     }
 }

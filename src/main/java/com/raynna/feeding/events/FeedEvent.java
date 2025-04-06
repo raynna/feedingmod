@@ -1,6 +1,6 @@
 package com.raynna.feeding.events;
 
-import com.raynna.feeding.FeedMod;
+import com.raynna.feeding.FeedOther;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +13,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 
-@EventBusSubscriber(modid = FeedMod.MOD_ID)
+@EventBusSubscriber(modid = FeedOther.MOD_ID)
 public class FeedEvent {
 
     @SubscribeEvent
